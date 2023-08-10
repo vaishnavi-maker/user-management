@@ -1,18 +1,22 @@
-    $primary-color: #2980b9;
-    $secondary-color:  rgb(245, 110, 76);
-    $font-size-medium: 16px;
-    $font-color: white;
-    $align-center: center;
+  $primary-color: #2980b9;
+  $secondary-color:  rgb(245, 110, 76);
+  $font-size-medium: 16px;
+  $font-color: white;
+  $align-center: center;
   
+  @mixin default-colors {  
+    background-color: $primary-color;
+    color: $font-color;
+  }
+
   body{
     margin: 0;
   }
-  
+
   .navBar {
-    background-color: $primary-color;
+    @include default-colors;
     height: 10%;
     text-align: end;
-    color: $font-color;
     padding: 1.5%;
     &-new-user{
         text-decoration: none;
@@ -57,12 +61,11 @@
   }
 
   input {
-    border: 2px solid #3498db;
+    border: 2px solid $primary-color;
     border-radius: 6px;
     padding: 10px;
     font-size: $font-size-medium;
     color: #333;
-    transition: border-color 0.3s, box-shadow 0.3s;
     text-align: center;
 
     &:focus {
@@ -73,25 +76,14 @@
   }
 
   button {
+    @include default-colors;
     display: inline-block;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: $primary-color;
-    color: $font-color;
     font-size: $font-size-medium;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
   
-    &:hover {
-      background-color: $primary-color;
-      transform: scale(1.05);
-    }
-  
-    &:active {
-      transform: scale(0.95);
-    }
-
     &.submit-btn {
         margin-right: 14%;
     }
@@ -101,9 +93,6 @@
     text-align: $align-center;
     margin: 10%;
     margin-top: 3%;
-    &-user-list {
-        text-align: $align-center;
-    }
   }
 
   .article-container {

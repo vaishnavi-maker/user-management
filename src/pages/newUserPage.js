@@ -19,7 +19,7 @@ function AddUserPage() {
         const newUser = { id: Date.now(), name, email };
         // Call the addUser function from context
         addUser(newUser);
-        console.log(newUser);
+        // console.log(newUser);
         navigate('/');
     }
   };

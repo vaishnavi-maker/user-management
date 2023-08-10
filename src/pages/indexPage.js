@@ -1,6 +1,6 @@
 import React, { useState, useContext, useCallback, useMemo } from 'react';
-import UserCard from '../component/card';
-import UserFilter from '../component/filter';
+import UserCard from '../components/userCard';
+import UserFilter from '../components/userFilter';
 import {UserContext} from '../UserContext';
 
 function IndexPage() {
