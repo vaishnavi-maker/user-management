@@ -11,14 +11,20 @@ function IndexPage() {
     user.name.toLowerCase().includes(filterValue.toLowerCase())
   );
 
+  const filteredUsersLength = filteredUsers.length;
+  
   return (
     <div className="container">
       <UserFilter filterValue={filterValue} setFilterValue={setFilterValue} />
-      <div className="card-container">
-        {filteredUsers.map((user) => (
-            <UserCard key={user.id} user={user} />
-        ))}
-      </div>
+        <div className="card-container">
+        {
+          filteredUsersLength ?
+           <>{filteredUsers.map((user) => (
+              <UserCard key={user.id} user={user} />
+            ))}</>
+          :<h1>No Data Found</h1>
+        } 
+        </div>
     </div>
   );
 }

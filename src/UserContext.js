@@ -4,10 +4,9 @@ const UserContext = createContext();
 
 function UserProvider({ children }) {
   const [users, setUsers] = useState([]);
-
+  
   const addUser = (user) => {
     setUsers((prevUsers) => [...prevUsers, user]);
-    console.log(user);
   }
 
   return (
