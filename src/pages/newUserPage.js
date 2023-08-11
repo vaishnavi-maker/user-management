@@ -3,28 +3,24 @@ import {UserContext} from '../UserContext';
 import { useNavigate } from 'react-router-dom';
 
 function AddUserPage() {
-  // Assume a UserContext for managing users
   const { addUser } = useContext(UserContext);
-
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  // Other user input fields
-
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(name!=="" || email!==""){
-        // Create a new user object
-        const newUser = { id: Date.now(), name, email };
-        // Call the addUser function from context
+    if(name!=="" && email!==""){
+        const newUser = { id: Math.random()*10, name, email };
         addUser(newUser);
-        // console.log(newUser);
         navigate('/');
+    }
+    else{
+      alert("Please Enter All the Values");
     }
   };
 
-  const onClose = (e) => {
+  const onClose = () => {
       navigate('/');
   };
 

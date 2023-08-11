@@ -1,12 +1,10 @@
-import React, { useState, useContext, useCallback, useMemo } from 'react';
+import React, { useState, useContext } from 'react';
 import UserCard from '../components/userCard';
 import UserFilter from '../components/userFilter';
 import {UserContext} from '../UserContext';
 
 function IndexPage() {
-  // Assume a UserContext for managing users
   const { users } = useContext(UserContext);
-
   const [filterValue, setFilterValue] = useState('');
 
   const filteredUsers = users.filter((user) =>
@@ -16,7 +14,7 @@ function IndexPage() {
   return (
     <div className="container">
       <UserFilter filterValue={filterValue} setFilterValue={setFilterValue} />
-      <div className="user-list article-container">
+      <div className="card-container">
         {filteredUsers.map((user) => (
             <UserCard key={user.id} user={user} />
         ))}
